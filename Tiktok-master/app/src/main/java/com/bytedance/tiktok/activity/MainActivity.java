@@ -24,12 +24,20 @@ import rx.functions.Action1;
  */
 public class MainActivity extends BaseActivity {
     @BindView(R.id.viewpager)
-    ViewPager viewPager;//通过ButterKnife绑定的格式
+    ViewPager viewPager;//通过ButterKnife绑定的格式，ViewPager如其名所述，是负责翻页的一个 View
+    /*
+    * ViewPager 通过 setAdapter() 来建立与 PagerAdapter 的联系。这个联系是双向的，
+    * 一方面，ViewPager 会拥有PagerAdapter 对象，从而可以在需要时调用 PagerAdapter 的方法；
+    * 另一方面，ViewPager 会在 setAdapter() 中调用 PagerAdapter 的 registerDataSetObserver() 方法，
+    * 注册一个自己生成的 PagerObserver 对象，从而在 PagerAdapter 有所需要时（如notifyDataSetChanged()或
+    * notifyDataSetInvalidated() 时），可以调用 Observer 的 onChanged() 或 onInvalidated() 方法，
+    * 从而实现 PagerAdapter 向 ViewPager 方向发送信息。
+    */
     private CommPagerAdapter pagerAdapter;
-    private ArrayList<Fragment> fragments = new ArrayList<>();
+    private ArrayList<Fragment> fragments = new ArrayList<>();//包括mainFragment和personalHomeFragment
     public static int curMainPage;
-    private MainFragment mainFragment = new MainFragment();
-    private PersonalHomeFragment personalHomeFragment = new PersonalHomeFragment();
+    private MainFragment mainFragment = new MainFragment();//主Fragment（0）。里面包含了海淀和推荐页面
+    private PersonalHomeFragment personalHomeFragment = new PersonalHomeFragment();//个人主页（1）
     /** 上次点击返回键时间 */
     private long lastTime;
     /** 连续按返回键退出时间 */
@@ -49,6 +57,7 @@ public class MainActivity extends BaseActivity {
         viewPager.setAdapter(pagerAdapter);
 
         //点击头像切换页面
+        //暂时不要
         RxBus.getDefault().toObservable(MainPageChangeEvent.class)
                 .subscribe((Action1<MainPageChangeEvent>) event -> {
                     if (viewPager != null) {

@@ -16,7 +16,7 @@ import butterknife.BindView;
 /**
  * create by libo
  * create on 2020-05-19
- * description 主页fragment
+ * description 主页fragment（）
  */
 public class MainFragment extends BaseFragment {
     private CurrentLocationFragment currentLocationFragment;

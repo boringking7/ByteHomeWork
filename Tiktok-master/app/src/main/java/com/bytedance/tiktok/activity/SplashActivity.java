@@ -21,7 +21,6 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void init() {
         setFullScreen();
-
         new CountDownTimer(500, 500) {
             @Override
             public void onTick(long millisUntilFinished) {
