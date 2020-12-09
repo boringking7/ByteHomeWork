@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_margin="10dp">
-
+            <!--这是个图标-->
             <com.bytedance.tiktok.view.IconFontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -55,7 +55,6 @@
         android:id="@+id/tv_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="能看得出来什么情况吗？"
         android:textColor="@color/white"
         android:textSize="14sp"
         android:paddingLeft="5dp"

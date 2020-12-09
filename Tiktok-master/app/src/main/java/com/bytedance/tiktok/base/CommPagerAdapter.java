@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * description 公共viewPageradapter
  */
 public class CommPagerAdapter extends FragmentStatePagerAdapter {
-//该 PagerAdapter 的实现将只保留当前页面，当页面离开视线后，就会被消除，释放其资源
+//FragmentStatePagerAdapter 的实现将只保留当前页面，当页面离开视线后，就会被消除，释放其资源
     private ArrayList<? extends Fragment> items;
     private String[] mTitles;
 

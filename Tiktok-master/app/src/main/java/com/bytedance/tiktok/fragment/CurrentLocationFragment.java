@@ -35,7 +35,7 @@ public class CurrentLocationFragment extends BaseFragment {
     @Override
     protected void init() {
         new DataCreate().initData();
-        
+        //StaggeredGridLayoutManager瀑布流布局，spanCount可以修改（每一排显示的个数）
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
         adapter = new GridVideoAdapter(getActivity(), DataCreate.datas);
@@ -43,7 +43,7 @@ public class CurrentLocationFragment extends BaseFragment {
 
 
 
-        refreshLayout.setColorSchemeResources(R.color.color_link);
+        refreshLayout.setColorSchemeResources(R.color.color_weibo_iconbg);
         refreshLayout.setOnRefreshListener(() -> new CountDownTimer(1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {

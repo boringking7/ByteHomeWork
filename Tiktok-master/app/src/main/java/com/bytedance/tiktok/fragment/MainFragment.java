@@ -20,7 +20,8 @@ import butterknife.BindView;
  */
 public class MainFragment extends BaseFragment {
     private CurrentLocationFragment currentLocationFragment;
-    private RecommendFragment recommendFragment;
+    private RecommendFragment recommendFragment;//自动播放页面可以去掉
+    private BlankFragment blankFragment;
     @BindView(R.id.viewpager)
     ViewPager viewPager;
     @BindView(R.id.tab_title)
@@ -30,7 +31,7 @@ public class MainFragment extends BaseFragment {
     private ArrayList<Fragment> fragments = new ArrayList<>();
     private CommPagerAdapter pagerAdapter;
     /** 默认显示第一页推荐页 */
-    public static int curPage = 1;
+    public static int curPage = 0;
 
     @Override
     protected int setLayoutId() {
@@ -47,17 +48,20 @@ public class MainFragment extends BaseFragment {
     private void setFragments() {
         currentLocationFragment = new CurrentLocationFragment();
         recommendFragment = new RecommendFragment();
+        blankFragment = new BlankFragment();
         fragments.add(currentLocationFragment);
         fragments.add(recommendFragment);
+        fragments.add(blankFragment);
 
-        tabTitle.addTab(tabTitle.newTab().setText("海淀"));
+        tabTitle.addTab(tabTitle.newTab().setText("交大"));
         tabTitle.addTab(tabTitle.newTab().setText("推荐"));
+        tabTitle.addTab(tabTitle.newTab().setText("关注"));
 
-        pagerAdapter = new CommPagerAdapter(getChildFragmentManager(), fragments, new String[] {"海淀", "推荐"});
+        pagerAdapter = new CommPagerAdapter(getChildFragmentManager(), fragments, new String[] {"交大", "推荐","关注"});
         viewPager.setAdapter(pagerAdapter);
         tabTitle.setupWithViewPager(viewPager);
 
-        tabTitle.getTabAt(1).select();//默认推荐
+        tabTitle.getTabAt(0).select();//默认推荐
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -100,7 +104,7 @@ public class MainFragment extends BaseFragment {
 
     private void setMainMenu() {
         tabMainMenu.addTab(tabMainMenu.newTab().setText("首页"));
-        tabMainMenu.addTab(tabMainMenu.newTab().setText("好友"));
+        tabMainMenu.addTab(tabMainMenu.newTab().setText("朋友"));
         tabMainMenu.addTab(tabMainMenu.newTab().setText(""));
         tabMainMenu.addTab(tabMainMenu.newTab().setText("消息"));
         tabMainMenu.addTab(tabMainMenu.newTab().setText("我"));
