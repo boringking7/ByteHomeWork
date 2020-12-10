@@ -24,7 +24,7 @@ import butterknife.BindView;
 public class MainFragment extends BaseFragment {
     private CurrentLocationFragment currentLocationFragment;
 //    private RecommendFragment recommendFragment;//自动播放页面可以去掉
-private BlankFragment blankFragment;//关注空列表
+    private BlankFragment blankFragment;//关注空列表
     private BlankFragment recommendFragment;//暂时用一个空的Fragment代替自动播放页面，后面new的时候也要修改
 
 
