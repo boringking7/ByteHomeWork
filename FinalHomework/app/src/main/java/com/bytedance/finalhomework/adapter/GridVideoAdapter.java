@@ -10,11 +10,14 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.bumptech.glide.Glide;
 import com.bytedance.finalhomework.R;
 import com.bytedance.finalhomework.activity.PlayListActivity;
+import com.bytedance.finalhomework.base.BaseFragment;
 import com.bytedance.finalhomework.base.BaseRvAdapter;
 import com.bytedance.finalhomework.base.BaseRvViewHolder;
 import com.bytedance.finalhomework.base.VideoBean;
+import com.bytedance.finalhomework.fragment.CurrentLocationFragment;
 
 import java.util.List;
 
@@ -29,7 +32,12 @@ public class GridVideoAdapter extends BaseRvAdapter<VideoBean, GridVideoAdapter.
 
     @Override
     protected void onBindData(GridVideoViewHolder holder, VideoBean videoBean, int position) {
-        holder.ivCover.setBackgroundResource(videoBean.getCoverRes());//封面
+        Glide.with(context)
+                .load(videoBean.getCoverRes())
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.error)
+                .into(holder.ivCover);
+//        holder.ivCover.setBackgroundResource(videoBean.getCoverRes());//封面
         holder.tvContent.setText("#" +videoBean.getUserBean().getNickName()+ "#" + videoBean.getContent());//作者名字+附加信息
 
         holder.itemView.setOnClickListener(v -> {

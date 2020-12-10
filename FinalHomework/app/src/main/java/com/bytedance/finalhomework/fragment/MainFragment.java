@@ -24,9 +24,10 @@ import butterknife.BindView;
 public class MainFragment extends BaseFragment {
     private CurrentLocationFragment currentLocationFragment;
 //    private RecommendFragment recommendFragment;//自动播放页面可以去掉
+private BlankFragment blankFragment;//关注空列表
     private BlankFragment recommendFragment;//暂时用一个空的Fragment代替自动播放页面，后面new的时候也要修改
 
-    private BlankFragment blankFragment;
+
     @BindView(R.id.viewpager)
     ViewPager viewPager;
     @BindView(R.id.tab_title)
@@ -36,7 +37,7 @@ public class MainFragment extends BaseFragment {
     private ArrayList<Fragment> fragments = new ArrayList<>();
     private CommPagerAdapter pagerAdapter;
     /** 默认显示第一页推荐页 */
-    public static int curPage = 0;
+    public static int curPage = 1;
 
     @Override
     protected int setLayoutId() {
@@ -55,8 +56,8 @@ public class MainFragment extends BaseFragment {
         recommendFragment = new BlankFragment();
         blankFragment = new BlankFragment();
         fragments.add(currentLocationFragment);
-        fragments.add(recommendFragment);
         fragments.add(blankFragment);
+        fragments.add(recommendFragment);
 
         tabTitle.addTab(tabTitle.newTab().setText("交大"));
         tabTitle.addTab(tabTitle.newTab().setText("关注"));
@@ -66,7 +67,7 @@ public class MainFragment extends BaseFragment {
         viewPager.setAdapter(pagerAdapter);
         tabTitle.setupWithViewPager(viewPager);
 
-        tabTitle.getTabAt(0).select();//默认推荐
+        tabTitle.getTabAt(1).select();//默认关注
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

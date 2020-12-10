@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void getVideoList() {
-        Call<GetVideoResponse> videoResponseCall = testService.getVideoList();
+        Call<GetVideoResponse> videoResponseCall = testService.getVideoList("777777777777");
         videoResponseCall.enqueue(new Callback<GetVideoResponse>() {
             @Override
             public void onResponse(Call<GetVideoResponse> call, Response<GetVideoResponse> response) {
