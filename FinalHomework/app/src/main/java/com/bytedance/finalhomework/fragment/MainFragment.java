@@ -59,10 +59,10 @@ public class MainFragment extends BaseFragment {
         fragments.add(blankFragment);
 
         tabTitle.addTab(tabTitle.newTab().setText("交大"));
-        tabTitle.addTab(tabTitle.newTab().setText("推荐"));
         tabTitle.addTab(tabTitle.newTab().setText("关注"));
+        tabTitle.addTab(tabTitle.newTab().setText("推荐"));
 
-        pagerAdapter = new CommPagerAdapter(getChildFragmentManager(), fragments, new String[] {"交大", "推荐","关注"});
+        pagerAdapter = new CommPagerAdapter(getChildFragmentManager(), fragments, new String[] {"交大", "关注","推荐"});
         viewPager.setAdapter(pagerAdapter);
         tabTitle.setupWithViewPager(viewPager);
 

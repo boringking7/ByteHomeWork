@@ -20,7 +20,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+//配置recyclerview具体显示内容
 public class GridVideoAdapter extends BaseRvAdapter<VideoBean, GridVideoAdapter.GridVideoViewHolder> {
 
     public GridVideoAdapter(Context context, List<VideoBean> datas) {
