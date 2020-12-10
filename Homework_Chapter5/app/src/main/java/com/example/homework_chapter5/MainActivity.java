@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.btnUpload).setOnClickListener(v -> upLoad());
-        findViewById(R.id.btnDownload).setOnClickListener(v -> getVideoList());
+        findViewById(R.id.btnUpload).setOnClickListener(v -> upLoad());//上传
+        findViewById(R.id.btnDownload).setOnClickListener(v -> getVideoList());//下载
     }
     private void upLoad() {
 
