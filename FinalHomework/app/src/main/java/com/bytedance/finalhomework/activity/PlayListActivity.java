@@ -20,5 +20,6 @@ public class PlayListActivity extends BaseActivity {
     protected void init() {
         //实际上调用的还是RecommendFragment,目前先调用一个空的
         getSupportFragmentManager().beginTransaction().add(R.id.framelayout, new RecommendFragment()).commit();
+
     }
 }
